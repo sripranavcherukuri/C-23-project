@@ -11,6 +11,7 @@ function preload()
 {
 	helicopterImg=loadImage("helicopter.png")
 	bgImg=loadImage("bg.png")
+	packageBody=loadImage("package.png")
 }
 
 function setup() {
@@ -21,6 +22,7 @@ function setup() {
 
 	packageSprite=createSprite(width/2, 50,200,200);
 	packageSprite.shapeColor = "yellow"
+	packageSprite.addImage(packageBody)
 	packageSprite.scale=0.2
 
 	helicopterSprite=createSprite(width/2, 100, 10,10);
@@ -72,7 +74,9 @@ function keyPressed() {
 	  
 	if (keyCode === DOWN_ARROW) {
 	   //make the static property of packageBody as false
+	   Matter.Body.setStatic(packageBody,false);
 
+	  }
 	}
-}
+
   
